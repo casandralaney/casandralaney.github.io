@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # This is Cassie's awesome website
@@ -15,3 +14,11 @@ output:
 This website is an example of [P8105](https://p8105.com/index.html). We're making websites today! Learn more about this site [here](about.html)
 
 I also use [google](https://google.com/) a ton for data science
+
+To show that you can just use RMD like normal, check out [plots](plots.html)
+
+
+
+Here's a picture
+
+![](images/pfp.jpg)

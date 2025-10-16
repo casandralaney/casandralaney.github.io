@@ -1,14 +1,16 @@
 ---
 title: "Here are some plots"
 output: 
-  html_document
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 we often make plots in data science
 
 Here's the tidyverse.
 
-```{r}
+```{r message=FALSE}
 library(tidyverse)
 ```
 
