@@ -1,0 +1,17 @@
+---
+title: "My awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# This is Cassie's awesome website
+
+![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+
+
+This website is an example of [P8105](https://p8105.com/index.html). We're making websites today! Learn more about this site [here](about.html)
+
+I also use [google](https://google.com/) a ton for data science
