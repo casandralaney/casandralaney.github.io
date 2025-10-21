@@ -1,0 +1,47 @@
+---
+title: "plotly"
+author: "Casandra Laney"
+date: "2025-10-21"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+
+library(plotly)
+```
+
+
+import data
+
+```{r}
+data(nyc_airbnb)
+
+nyc_airbnb = 
+  nyc_airbnb |> 
+  mutate(rating = review_scores_location / 2) |>
+  select(
+    neighbourhood_group, neighbourhood, rating, price, room_type, lat, long) |>
+  filter(
+    !is.na(rating), 
+    neighbourhood_group == "Manhattan",
+    room_type == "Entire home/apt",
+    price %in% 100:500)
+```
+
+
+```{r}
+nyc_airbnb |>
+  mutate(
+    label = str_c("Price: $", price, "\nRating: ", rating)
+  ) |>
+  plot_ly(
+    x = ~lat, y = ~long, color = ~price, alpha = 0.5,
+    text = ~ label,
+    type = "scatter", mode = "markers"
+  )
+```
+
