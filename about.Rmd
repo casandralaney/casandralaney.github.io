@@ -1,6 +1,14 @@
 ---
-title: "about this website"
+title: "About Me"
 output: html_document
 ---
 
-This website was coded by Cassie Laney using R markdown
+![](images/pfp.jpg)
+
+### Education
+
+### Clinical and Research Experience
+
+### Leadership and Extrat Curricular Activities
+
+This website was coded by Cassie Laney using R markdown.
