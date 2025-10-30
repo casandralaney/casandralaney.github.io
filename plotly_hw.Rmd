@@ -1,17 +1,39 @@
 ---
-title: "Flexdashboard"
-output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+title: "plotly_hw"
+author: "Casandra Laney"
+date: "2025-10-29"
+output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
-```{r setup, include=FALSE}
-library(flexdashboard)
+
+```{r}
 library(tidyverse)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+library(lubridate)
+library(patchwork)
 library(p8105.datasets)
+data("ny_noaa")
 library(plotly)
 ```
+
 
 ```{r}
 ny_noaa =
@@ -23,11 +45,8 @@ ny_noaa =
   filter(year == 2010) 
 ```
 
-Column {data-width=650}
------------------------------------------------------------------------
 
-### Chart A
-
+## Scatterplot
 ```{r}
 ny_noaa |>
   filter(month == 1) |>
@@ -38,12 +57,11 @@ ny_noaa |>
     x = ~tmin, y = ~tmax, color = ~snow, alpha = 0.5,
     text = ~ label,
     type = "scatter", mode = "markers")
+
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
 
-### Chart B
+## Bar Plot
 
 ```{r}
 ny_noaa |>
@@ -55,15 +73,13 @@ ny_noaa |>
 
 ```
 
-### Chart C
+## Box Plot
 
 ```{r}
 ny_noaa |>
-  filter(prcp < 150) |>
   plot_ly(
-    x = ~month, y = ~prcp, color = ~month,
-    type = "box", colors = "viridis"
+    x = ~month, y = ~n,
+    type = "bar"
   )
-
 ```
 
