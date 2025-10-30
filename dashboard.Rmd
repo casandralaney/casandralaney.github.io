@@ -26,7 +26,7 @@ ny_noaa =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Tmin vs Tmax in 2010
 
 ```{r}
 ny_noaa |>
@@ -43,7 +43,7 @@ ny_noaa |>
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Preciptation by Month < 150 in 2010
 
 ```{r}
 ny_noaa |>
@@ -55,14 +55,15 @@ ny_noaa |>
 
 ```
 
-### Chart C
+### Total Snow by Month in 2010
 
 ```{r}
 ny_noaa |>
-  filter(prcp < 150) |>
+  group_by(month) |>
+  summarize(total_snow = sum(snow)) |>
   plot_ly(
-    x = ~month, y = ~prcp, color = ~month,
-    type = "box", colors = "viridis"
+    x = ~month, y = ~total_snow,
+    type = "bar"
   )
 
 ```

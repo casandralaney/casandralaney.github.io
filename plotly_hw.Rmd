@@ -77,8 +77,10 @@ ny_noaa |>
 
 ```{r}
 ny_noaa |>
+  group_by(month) |>
+  summarize(total_snow = sum(snow)) |>
   plot_ly(
-    x = ~month, y = ~n,
+    x = ~month, y = ~total_snow,
     type = "bar"
   )
 ```
